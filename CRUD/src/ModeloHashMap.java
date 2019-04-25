@@ -1,4 +1,5 @@
 
+
 /**
  * Write a description of class ModeloHaspMap here.
  * 
@@ -20,25 +21,33 @@ public class ModeloHashMap extends ModeloAbs
 	@Override
 	public boolean insertarProducto(Producto p) {
 		// TODO Auto-generated method stub
-		return false;
+		lista.put(p.getCodigo(), p);
+		return true;
 	}
 
 	@Override
 	boolean borrarProducto(int codigo) {
 		// TODO Auto-generated method stub
-		return false;
+		lista.remove(codigo);
+		return true;
 	}
 
 	@Override
 	public Producto buscarProducto(int codigo) {
 		// TODO Auto-generated method stub
-		return null;
+		Producto p=null;
+		
+		p =lista.get(codigo);
+		
+		return p;
 	}
 
 	@Override
 	void listarProductos() {
 		// TODO Auto-generated method stub
-		
+		for (Map.Entry<Integer,Producto> codigo: lista.entrySet()) {
+			System.out.println(codigo+" : "+codigo.getValue());
+		}
 	}
 
 	@Override
@@ -47,6 +56,18 @@ public class ModeloHashMap extends ModeloAbs
 		return false;
 	}
 
+	@Override
+	void listarPocoStock() {
+		// TODO Auto-generated method stub
+		for (Map.Entry<Integer,Producto> codigo: lista.entrySet()) {
+			if (codigo.getValue().getStock()<codigo.getValue().getStock_min()) {
+				System.out.println(codigo+" : "+codigo.getValue());
+			}
+			
+		}
+	}
+
     
     
 }
+

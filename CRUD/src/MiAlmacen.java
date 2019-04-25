@@ -13,6 +13,7 @@ public class MiAlmacen
     
     public static void main(String[] args){
         almacen=new ModeloArrayList ();
+	almacen=new ModeloHashMap ();
         sc = new Scanner(System.in);
         int opcion=0;
         do{
